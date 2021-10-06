@@ -1,4 +1,11 @@
-# todo-app
+# Todo App
+
+Todo App made with Vue 2.
+
+## Functionalities
+- Add tasks
+- Mark tasks as done
+- Remove tasks
 
 ## Project setup
 ```
@@ -19,6 +26,3 @@ yarn build
 ```
 yarn lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
