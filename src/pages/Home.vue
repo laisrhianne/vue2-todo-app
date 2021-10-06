@@ -1,7 +1,7 @@
 <template>
   <v-container id="main-container">
     <h1 id="title">Todo App</h1>
-    <Form/>
+    <Form @addTask="addTask"/>
   </v-container>
 </template>
 
@@ -11,6 +11,11 @@ export default {
   name: 'Home',
   components: {
     Form
+  },
+  methods: {
+    addTask(task) {
+      console.log(task)
+    }
   }
 }
 </script>
