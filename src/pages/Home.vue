@@ -1,15 +1,30 @@
 <template>
-  <div class="hello">
-    <h1>Todo App</h1>
-  </div>
+  <v-container id="main-container">
+    <h1 id="title">Todo App</h1>
+    <Form/>
+  </v-container>
 </template>
 
 <script>
+import Form from '../components/Form.vue'
 export default {
   name: 'Home',
+  components: {
+    Form
+  }
 }
 </script>
 
 <style scoped>
+#main-container {
+  display: flex;
+  flex-direction: column;
+}
 
+#title {
+  width: 100%;
+  text-align: center;
+
+  margin-top: 30px;
+}
 </style>
