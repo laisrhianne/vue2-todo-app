@@ -8,7 +8,7 @@
     </v-row>
     <v-row>
       <v-container id="tasks-container" v-for="task in tasks" :key="task.id">
-        <Task class="task" :id="task.id" :title="task.name" :done="task.done" />
+        <Task class="task" :id="task.id" :title="task.name" :done="task.done" @deleteTask="deleteTask" />
       </v-container>
     </v-row>
   </v-container>
@@ -31,6 +31,9 @@ export default {
   methods: {
     addTask(task) {
       this.tasks.push(task)
+    },
+    deleteTask(task) {
+      this.tasks = this.tasks.filter((currentTask) => currentTask.id !== task.id)
     },
   },
 }

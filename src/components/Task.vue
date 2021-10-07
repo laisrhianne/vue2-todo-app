@@ -5,7 +5,7 @@
         <v-checkbox v-model="done"></v-checkbox>
         <span id="title">{{ title }}</span>
       </v-container>
-      <v-btn icon color="#F6F6F6">
+      <v-btn icon color="#F6F6F6" @click="emitDeleteTaskEvent">
         <v-icon color="error" medium>fas fa-trash</v-icon>
       </v-btn>
     </v-card-title>
@@ -20,6 +20,11 @@ export default {
     title: String,
     done: Boolean,
   },
+  methods: {
+    emitDeleteTaskEvent() {
+      this.$emit('deleteTask', { id: this.id })
+    }
+  }
 }
 </script>
 
