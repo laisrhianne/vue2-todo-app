@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     emitAddTaskEvent() {
-      this.$emit('addTask', { taskName: this.taskName, id: uuidv4() });
+      this.$emit('addTask', { taskName: this.taskName, id: uuidv4(), done: false });
     }
   }
 };
