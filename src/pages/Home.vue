@@ -30,12 +30,22 @@ export default {
   },
   methods: {
     addTask(task) {
+      const taskExists = this.tasks.find(currentTask => currentTask.name === task.name)
+      if (taskExists) {
+        alert('Task already exists')
+        return
+      }
       this.tasks.push(task)
+      localStorage.setItem("@TodoAppVue2:tasks", JSON.stringify(this.tasks))
     },
     deleteTask(task) {
       this.tasks = this.tasks.filter((currentTask) => currentTask.id !== task.id)
+      localStorage.setItem("@TodoAppVue2:tasks", JSON.stringify(this.tasks))
     },
   },
+  mounted() {
+    this.tasks = JSON.parse(localStorage.getItem("@TodoAppVue2:tasks")) || []
+  }
 }
 </script>
 
