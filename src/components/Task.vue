@@ -3,7 +3,7 @@
     <v-card-title id="card-title">
       <v-container id="title-container">
         <v-checkbox v-model="done"></v-checkbox>
-        <span id="title">{{ title }}</span>
+        <span id="title" :class="{ done }">{{ title }}</span>
       </v-container>
       <v-btn icon color="#F6F6F6" @click="emitDeleteTaskEvent">
         <v-icon color="error" medium>fas fa-trash</v-icon>
@@ -48,5 +48,9 @@ export default {
   flex-direction: row;
   align-items: center;
   padding: 0 10px;
+}
+
+.done {
+  text-decoration: line-through;
 }
 </style>
