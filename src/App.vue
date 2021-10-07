@@ -1,13 +1,13 @@
 <template>
   <v-app>
     <v-main>
-      <Home/>
+      <Home />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import Home from './pages/Home.vue';
+import Home from './pages/Home.vue'
 
 export default {
   name: 'App',
@@ -15,5 +15,5 @@ export default {
   components: {
     Home,
   },
-};
+}
 </script>

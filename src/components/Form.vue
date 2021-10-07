@@ -1,29 +1,29 @@
 <template>
-<v-container id="form-container">
-  <v-form id="form" @submit.prevent="emitAddTaskName">
-    <v-text-field
-      id="task-input"
-      label="Task"
-      v-model="taskName"
-      :rules="[rules.required]"
-      clearable
-      clear-icon="fas fa-times"
-    />
-    <v-btn
-      id="submit-btn"
-      color="primary"
-      elevation="5"
-      fab
-      @click="emitAddTaskEvent"
-    >
-      <v-icon>fas fa-plus</v-icon>
-    </v-btn>
-  </v-form>
-</v-container>
+  <v-container id="form-container">
+    <v-form id="form" @submit.prevent="emitAddTaskName">
+      <v-text-field
+        id="task-input"
+        label="Task"
+        v-model="taskName"
+        :rules="[rules.required]"
+        clearable
+        clear-icon="fas fa-times"
+      />
+      <v-btn
+        id="submit-btn"
+        color="primary"
+        elevation="5"
+        fab
+        @click="emitAddTaskEvent"
+      >
+        <v-icon>fas fa-plus</v-icon>
+      </v-btn>
+    </v-form>
+  </v-container>
 </template>
 
 <script>
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid'
 
 export default {
   name: 'Form',
@@ -31,21 +31,24 @@ export default {
     return {
       taskName: '',
       rules: {
-        required: value => !!value || 'Required.'
+        required: (value) => !!value || 'Required.',
       },
-    };
+    }
   },
   methods: {
     emitAddTaskEvent() {
-      this.taskName = '';
+      if (!this.taskName) {
+        return
+      }
       this.$emit('addTask', {
-        taskName: this.taskName,
         id: uuidv4(),
+        name: this.taskName,
         done: false,
-      });
+      })
+      this.taskName = ''
     },
   },
-};
+}
 </script>
 
 <style>
@@ -59,7 +62,7 @@ export default {
   display: flex;
   flex-direction: row;
   width: 70%;
-  margin-top: 30px;
+  margin-top: 60px;
 }
 
 #submit-btn {

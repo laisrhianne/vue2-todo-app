@@ -1,22 +1,38 @@
 <template>
   <v-container id="main-container">
-    <h1 id="title">Todo App</h1>
-    <Form @addTask="addTask"/>
+    <v-row>
+      <h1 id="title">Todo App</h1>
+    </v-row>
+    <v-row>
+      <Form @addTask="addTask" />
+    </v-row>
+    <v-row>
+      <v-container id="tasks-container" v-for="task in tasks" :key="task.id">
+        <Task class="task" :id="task.id" :title="task.name" :done="task.done" />
+      </v-container>
+    </v-row>
   </v-container>
 </template>
 
 <script>
 import Form from '../components/Form.vue'
+import Task from '../components/Task.vue'
 export default {
   name: 'Home',
   components: {
-    Form
+    Form,
+    Task,
+  },
+  data() {
+    return {
+      tasks: [],
+    }
   },
   methods: {
     addTask(task) {
-      console.log(task)
-    }
-  }
+      this.tasks.push(task)
+    },
+  },
 }
 </script>
 
@@ -30,6 +46,14 @@ export default {
   width: 100%;
   text-align: center;
 
-  margin-top: 30px;
+  margin-top: 60px;
+}
+
+#tasks-container {
+  margin-top: 60px;
+}
+
+.task {
+  margin: 0;
 }
 </style>
