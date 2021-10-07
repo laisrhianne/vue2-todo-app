@@ -11,14 +11,15 @@
 import { v4 as uuidv4 } from 'uuid';
 
 export default {
-  name: "Form",
+  name: 'Form',
   data: function () {
     return {
-      taskName: "",
+      taskName: '',
     };
   },
   methods: {
     emitAddTaskEvent() {
+      this.taskName = ''
       this.$emit('addTask', { taskName: this.taskName, id: uuidv4(), done: false });
     }
   }
