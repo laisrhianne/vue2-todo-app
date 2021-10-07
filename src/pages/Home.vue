@@ -6,8 +6,8 @@
     <v-row>
       <Form @addTask="addTask" />
     </v-row>
-    <v-row>
-      <v-container id="tasks-container" v-for="task in tasks" :key="task.id">
+    <v-row id="tasks-container">
+      <v-container v-for="task in tasks" :key="task.id">
         <Task class="task" :id="task.id" :title="task.name" :done="task.done" @deleteTask="deleteTask" />
       </v-container>
     </v-row>
@@ -63,7 +63,7 @@ export default {
 }
 
 #tasks-container {
-  margin-top: 60px;
+  margin-top: 30px;
 }
 
 .task {
